@@ -1120,6 +1120,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #mep-s-frontend-audited .admin-shell {
       display: grid;
       grid-template-columns: 220px minmax(0, 1fr);
+      height: calc(100vh - 52px);
       min-height: calc(100vh - 52px);
       overflow: hidden;
       border: 1px solid var(--m-line);
@@ -1198,6 +1199,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     }
     #mep-s-frontend-audited .admin-main {
       min-width: 0;
+      overflow: auto;
       background: var(--m-bg);
     }
     #mep-s-frontend-audited .admin-topbar {
@@ -1277,6 +1279,23 @@ html&gt;body{padding:0}&lt;/style&gt;
       color: var(--m-brand-deep);
       background: var(--m-brand-soft);
     }
+    #mep-s-frontend-audited .m-button,
+    #mep-s-frontend-audited .admin-nav,
+    #mep-s-frontend-audited .quick-item,
+    #mep-s-frontend-audited .activity-card,
+    #mep-s-frontend-audited .menu-row,
+    #mep-s-frontend-audited .favorite {
+      transition:
+        border-color 160ms ease,
+        background-color 160ms ease,
+        color 160ms ease,
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+    #mep-s-frontend-audited :is(.m-button, .quick-item, .activity-card, .menu-row):hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px color-mix(in srgb, var(--m-ink) 8%, transparent);
+    }
     #mep-s-frontend-audited .stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1293,6 +1312,16 @@ html&gt;body{padding:0}&lt;/style&gt;
     }
     #mep-s-frontend-audited .stat-card {
       padding: 15px 16px;
+    }
+    #mep-s-frontend-audited button.stat-card {
+      width: 100%;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    #mep-s-frontend-audited button.stat-card:hover {
+      border-color: var(--m-brand);
+      box-shadow: 0 6px 18px color-mix(in srgb, var(--m-brand) 12%, transparent);
     }
     #mep-s-frontend-audited .stat-card span {
       color: var(--m-ink-2);
@@ -1379,6 +1408,20 @@ html&gt;body{padding:0}&lt;/style&gt;
       border: 1px solid var(--m-line);
       border-radius: 8px;
       background: var(--m-panel);
+    }
+    #mep-s-frontend-audited .table-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    #mep-s-frontend-audited .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
     }
     #mep-s-frontend-audited .field {
       display: grid;
@@ -1487,6 +1530,11 @@ html&gt;body{padding:0}&lt;/style&gt;
       color: var(--m-ink-2);
       background: var(--m-panel);
     }
+    #mep-s-frontend-audited button.summary-chip.is-active {
+      border-color: var(--m-brand);
+      color: var(--m-brand-deep);
+      background: var(--m-brand-soft);
+    }
     #mep-s-frontend-audited .summary-chip strong {
       color: var(--m-ink);
       font-weight: 500;
@@ -1513,8 +1561,98 @@ html&gt;body{padding:0}&lt;/style&gt;
       width: 28px;
       text-align: center;
     }
+    #mep-s-frontend-audited .review-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+      gap: 14px;
+      margin-top: 14px;
+      padding: 15px;
+      border: 1px solid var(--m-line);
+      border-radius: 8px;
+      background: var(--m-panel);
+    }
+    #mep-s-frontend-audited .review-panel h2 {
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    #mep-s-frontend-audited .review-files {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    #mep-s-frontend-audited .review-file {
+      display: grid;
+      min-height: 86px;
+      place-items: center;
+      border: 1px dashed var(--m-line);
+      border-radius: 6px;
+      color: var(--m-ink-2);
+      background: var(--m-bg);
+    }
+    #mep-s-frontend-audited .student-pc-shell {
+      height: calc(100vh - 52px);
+      min-height: calc(100vh - 52px);
+      overflow: hidden;
+      border: 1px solid var(--m-line);
+      border-radius: 8px;
+      background: var(--m-bg);
+    }
+    #mep-s-frontend-audited .student-pc-header {
+      display: flex;
+      min-height: 62px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 22px;
+      border-bottom: 1px solid var(--m-line);
+      background: var(--m-panel);
+    }
+    #mep-s-frontend-audited .student-pc-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--m-brand-deep);
+      font-size: 15px;
+      font-weight: 500;
+    }
+    #mep-s-frontend-audited .student-pc-nav {
+      display: flex;
+      align-self: stretch;
+      gap: 4px;
+    }
+    #mep-s-frontend-audited .student-pc-nav button {
+      border: 0;
+      border-bottom: 2px solid transparent;
+      padding: 0 16px;
+      color: var(--m-ink-2);
+      background: transparent;
+    }
+    #mep-s-frontend-audited .student-pc-nav button.is-active {
+      border-bottom-color: var(--m-brand);
+      color: var(--m-brand-deep);
+    }
+    #mep-s-frontend-audited .student-pc-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--m-ink-2);
+    }
+    #mep-s-frontend-audited .student-pc-main {
+      height: calc(100% - 62px);
+      overflow: auto;
+      padding: 20px;
+    }
+    #mep-s-frontend-audited .student-pc-page {
+      display: none;
+    }
+    #mep-s-frontend-audited .student-pc-page.is-active {
+      display: block;
+    }
     #mep-s-frontend-audited .student-stage {
       display: grid;
+      max-height: calc(100vh - 52px);
+      overflow: auto;
       place-items: start center;
       padding: 18px;
       border: 1px solid var(--m-line);
@@ -1523,7 +1661,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     }
     #mep-s-frontend-audited .phone {
       position: relative;
-      width: min(390px, 100%);
+      width: min(360px, 100%);
       min-height: 690px;
       overflow: hidden;
       border: 1px solid var(--m-line);
@@ -1970,6 +2108,11 @@ html&gt;body{padding:0}&lt;/style&gt;
       color: var(--m-accent);
       background: var(--m-panel);
     }
+    #mep-s-frontend-audited .favorite.is-active {
+      border-color: var(--m-accent);
+      color: #ffffff;
+      background: var(--m-accent);
+    }
     #mep-s-frontend-audited .student-tabbar {
       position: absolute;
       inset: auto 0 0;
@@ -1998,12 +2141,17 @@ html&gt;body{padding:0}&lt;/style&gt;
       position: absolute;
       inset: 0;
       z-index: 7;
-      display: none;
+      visibility: hidden;
+      opacity: 0;
       background: color-mix(in srgb, var(--m-ink) 42%, transparent);
+      transition:
+        visibility 180ms ease,
+        opacity 180ms ease;
     }
     #mep-s-frontend-audited .drawer-backdrop.is-open,
     #mep-s-frontend-audited .cap-backdrop.is-open {
-      display: block;
+      visibility: visible;
+      opacity: 1;
     }
     #mep-s-frontend-audited .filter-drawer {
       position: absolute;
@@ -2013,6 +2161,11 @@ html&gt;body{padding:0}&lt;/style&gt;
       padding: 22px 16px;
       color: var(--m-ink);
       background: var(--m-panel);
+      transform: translateX(-100%);
+      transition: transform 220ms ease;
+    }
+    #mep-s-frontend-audited .drawer-backdrop.is-open .filter-drawer {
+      transform: translateX(0);
     }
     #mep-s-frontend-audited .drawer-title {
       display: flex;
@@ -2101,6 +2254,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       }
       #mep-s-frontend-audited .dash-grid,
       #mep-s-frontend-audited .split-setup,
+      #mep-s-frontend-audited .review-panel,
       #mep-s-frontend-audited .form-grid {
         grid-template-columns: 1fr;
       }
@@ -2133,6 +2287,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 
   &lt;div class=&quot;preview-switch&quot; role=&quot;tablist&quot; aria-label=&quot;预览设备&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-device=&quot;admin&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;&gt;管理端 PC&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-device=&quot;student-pc&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;学生 PC&lt;/button&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-device=&quot;student&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;学生移动端&lt;/button&gt;
   &lt;/div&gt;
 
@@ -2158,9 +2313,6 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;div class=&quot;nav-label&quot;&gt;系统管理&lt;/div&gt;
           &lt;button type=&quot;button&quot; class=&quot;admin-nav&quot; data-admin-target=&quot;roles&quot;&gt;&lt;i data-lucide=&quot;shield-check&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;角色与权限&lt;/button&gt;
           &lt;button type=&quot;button&quot; class=&quot;admin-nav&quot; data-admin-target=&quot;users&quot;&gt;&lt;i data-lucide=&quot;users&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;用户管理&lt;/button&gt;
-          &lt;div class=&quot;nav-label&quot;&gt;学生视图&lt;/div&gt;
-          &lt;button type=&quot;button&quot; class=&quot;admin-nav&quot; data-admin-target=&quot;student-activities&quot;&gt;&lt;i data-lucide=&quot;eye&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;学生·活动查看&lt;/button&gt;
-          &lt;button type=&quot;button&quot; class=&quot;admin-nav&quot; data-admin-target=&quot;student-materials&quot;&gt;&lt;i data-lucide=&quot;folder-open&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;学生·我的材料&lt;/button&gt;
         &lt;/div&gt;
       &lt;/aside&gt;
 
@@ -2168,7 +2320,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;header class=&quot;admin-topbar&quot;&gt;
           &lt;div class=&quot;admin-crumb&quot;&gt;心育实践平台 / &lt;span data-crumb&gt;数据概览&lt;/span&gt;&lt;/div&gt;
           &lt;div class=&quot;admin-user&quot;&gt;
-            &lt;div&gt;&lt;strong&gt;心理中心&lt;/strong&gt;&lt;br&gt;&lt;span style=&quot;color:var(--m-ink-2);font-size:11px&quot;&gt;中心管理员&lt;/span&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;strong&gt;系统管理员&lt;/strong&gt;&lt;br&gt;&lt;span style=&quot;color:var(--m-ink-2);font-size:11px&quot;&gt;信息化管理中心&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;avatar&quot;&gt;管&lt;/div&gt;
           &lt;/div&gt;
         &lt;/header&gt;
@@ -2181,7 +2333,7 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;div class=&quot;stats&quot;&gt;
               &lt;div class=&quot;stat-card&quot;&gt;&lt;span&gt;活动总数&lt;/span&gt;&lt;strong&gt;36&lt;/strong&gt;&lt;small&gt;本周新增 4 个&lt;/small&gt;&lt;/div&gt;
               &lt;div class=&quot;stat-card&quot;&gt;&lt;span&gt;参与学生&lt;/span&gt;&lt;strong&gt;1,284&lt;/strong&gt;&lt;small&gt;覆盖率 82.6%&lt;/small&gt;&lt;/div&gt;
-              &lt;div class=&quot;stat-card&quot;&gt;&lt;span&gt;待认定成果&lt;/span&gt;&lt;strong&gt;48&lt;/strong&gt;&lt;small&gt;其中 AI 待复核 6 项&lt;/small&gt;&lt;/div&gt;
+              &lt;button type=&quot;button&quot; class=&quot;stat-card&quot; data-admin-target=&quot;verify&quot;&gt;&lt;span&gt;待认定成果&lt;/span&gt;&lt;strong&gt;48&lt;/strong&gt;&lt;small&gt;其中 AI 待复核 6 项 · 查看&lt;/small&gt;&lt;/button&gt;
               &lt;div class=&quot;stat-card&quot;&gt;&lt;span&gt;已认定学时&lt;/span&gt;&lt;strong&gt;8,692&lt;/strong&gt;&lt;small&gt;较上月 +12.4%&lt;/small&gt;&lt;/div&gt;
             &lt;/div&gt;
             &lt;div class=&quot;dash-grid&quot;&gt;
@@ -2221,21 +2373,23 @@ html&gt;body{padding:0}&lt;/style&gt;
 
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;activities&quot;&gt;
             &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;活动列表&lt;/h1&gt;&lt;p&gt;统一管理活动发布、报名与执行状态&lt;/p&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;m-button primary&quot; data-admin-target=&quot;publish&quot;&gt;&lt;i data-lucide=&quot;plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;发布活动&lt;/button&gt;&lt;/div&gt;
+            &lt;div class=&quot;verify-summary&quot;&gt;&lt;button class=&quot;summary-chip is-active&quot; type=&quot;button&quot;&gt;全部 36&lt;/button&gt;&lt;button class=&quot;summary-chip&quot; type=&quot;button&quot;&gt;草稿 4&lt;/button&gt;&lt;button class=&quot;summary-chip&quot; type=&quot;button&quot;&gt;报名中 12&lt;/button&gt;&lt;button class=&quot;summary-chip&quot; type=&quot;button&quot;&gt;进行中 8&lt;/button&gt;&lt;button class=&quot;summary-chip&quot; type=&quot;button&quot;&gt;已结束 12&lt;/button&gt;&lt;/div&gt;
             &lt;div class=&quot;filters&quot;&gt;
               &lt;div class=&quot;field wide&quot;&gt;&lt;label for=&quot;activity-keyword&quot;&gt;活动名称&lt;/label&gt;&lt;input id=&quot;activity-keyword&quot; placeholder=&quot;搜索活动名称&quot;&gt;&lt;/div&gt;
               &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;activity-level&quot;&gt;发布级别&lt;/label&gt;&lt;select id=&quot;activity-level&quot;&gt;&lt;option&gt;全部级别&lt;/option&gt;&lt;option&gt;校级&lt;/option&gt;&lt;option&gt;院级&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
               &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;activity-status&quot;&gt;状态&lt;/label&gt;&lt;select id=&quot;activity-status&quot;&gt;&lt;option&gt;全部状态&lt;/option&gt;&lt;option&gt;报名中&lt;/option&gt;&lt;option&gt;进行中&lt;/option&gt;&lt;option&gt;已结束&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
               &lt;button type=&quot;button&quot; class=&quot;m-button primary&quot;&gt;&lt;i data-lucide=&quot;search&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;查询&lt;/button&gt;
             &lt;/div&gt;
+            &lt;div class=&quot;table-toolbar&quot;&gt;&lt;span style=&quot;color:var(--m-ink-2)&quot;&gt;已选择 0 项&lt;/span&gt;&lt;div class=&quot;toolbar-actions&quot;&gt;&lt;select class=&quot;m-button&quot; aria-label=&quot;批量操作&quot;&gt;&lt;option&gt;批量操作&lt;/option&gt;&lt;option&gt;批量发布&lt;/option&gt;&lt;option&gt;批量结束&lt;/option&gt;&lt;option&gt;复制活动&lt;/option&gt;&lt;option&gt;导出报名名单&lt;/option&gt;&lt;/select&gt;&lt;button type=&quot;button&quot; class=&quot;m-button&quot;&gt;执行&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;div class=&quot;panel&quot;&gt;
               &lt;div class=&quot;table-responsive&quot;&gt;
                 &lt;table class=&quot;data-table&quot;&gt;
-                  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;活动名称&lt;/th&gt;&lt;th&gt;项目分类&lt;/th&gt;&lt;th&gt;发布级别&lt;/th&gt;&lt;th&gt;学时&lt;/th&gt;&lt;th&gt;报名人数&lt;/th&gt;&lt;th&gt;活动时间&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+                  &lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;全选活动&quot;&gt;&lt;/th&gt;&lt;th&gt;活动名称&lt;/th&gt;&lt;th&gt;项目分类&lt;/th&gt;&lt;th&gt;发布级别&lt;/th&gt;&lt;th&gt;学时&lt;/th&gt;&lt;th&gt;报名/上限&lt;/th&gt;&lt;th&gt;活动时间&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
                   &lt;tbody&gt;
-                    &lt;tr&gt;&lt;td&gt;正念减压训练营&lt;/td&gt;&lt;td&gt;心理素养&lt;/td&gt;&lt;td&gt;校级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;118 / 120&lt;/td&gt;&lt;td&gt;07-26 14:00&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;报名中&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;查看&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
-                    &lt;tr&gt;&lt;td&gt;朋辈互助技能工作坊&lt;/td&gt;&lt;td&gt;技能实践&lt;/td&gt;&lt;td&gt;院级&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;46 / 60&lt;/td&gt;&lt;td&gt;07-28 09:00&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;报名中&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;查看&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
-                    &lt;tr&gt;&lt;td&gt;校园心理定向挑战&lt;/td&gt;&lt;td&gt;身心拓展&lt;/td&gt;&lt;td&gt;校级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;200 / 200&lt;/td&gt;&lt;td&gt;07-20 08:30&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag warn&quot;&gt;进行中&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;签到记录&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
-                    &lt;tr&gt;&lt;td&gt;我的情绪日记&lt;/td&gt;&lt;td&gt;心理素养&lt;/td&gt;&lt;td&gt;院级&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;83 / 100&lt;/td&gt;&lt;td&gt;07-12 18:00&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag danger&quot;&gt;已结束&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;成果统计&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择正念减压训练营&quot;&gt;&lt;/td&gt;&lt;td&gt;正念减压训练营&lt;/td&gt;&lt;td&gt;心理素养&lt;/td&gt;&lt;td&gt;校级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;118 / 120&lt;/td&gt;&lt;td&gt;07-26 14:00&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;报名中&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;查看&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;复制&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择朋辈互助技能工作坊&quot;&gt;&lt;/td&gt;&lt;td&gt;朋辈互助技能工作坊&lt;/td&gt;&lt;td&gt;技能实践&lt;/td&gt;&lt;td&gt;院级&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;46 / 60&lt;/td&gt;&lt;td&gt;07-28 09:00&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;报名中&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;查看&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;发布&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;名单&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择校园心理定向挑战&quot;&gt;&lt;/td&gt;&lt;td&gt;校园心理定向挑战&lt;/td&gt;&lt;td&gt;身心拓展&lt;/td&gt;&lt;td&gt;校级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;200 / 200&lt;/td&gt;&lt;td&gt;07-20 08:30&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag warn&quot;&gt;进行中&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;签到记录&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;结束&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
+                    &lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择我的情绪日记&quot;&gt;&lt;/td&gt;&lt;td&gt;我的情绪日记&lt;/td&gt;&lt;td&gt;心理素养&lt;/td&gt;&lt;td&gt;院级&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;83 / 100&lt;/td&gt;&lt;td&gt;07-12 18:00&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag danger&quot;&gt;已结束&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;成果统计&lt;/button&gt; · &lt;button class=&quot;text-link&quot;&gt;复制&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;
                   &lt;/tbody&gt;
                 &lt;/table&gt;
               &lt;/div&gt;
@@ -2253,6 +2407,10 @@ html&gt;body{padding:0}&lt;/style&gt;
                 &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-credit&quot;&gt;认定学时&lt;/label&gt;&lt;input id=&quot;publish-credit&quot; value=&quot;4&quot;&gt;&lt;/div&gt;
                 &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-time&quot;&gt;活动时间&lt;/label&gt;&lt;input id=&quot;publish-time&quot; value=&quot;2026-08-10 14:00&quot;&gt;&lt;/div&gt;
                 &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-capacity&quot;&gt;人数上限&lt;/label&gt;&lt;input id=&quot;publish-capacity&quot; value=&quot;80&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-location&quot;&gt;活动地点&lt;/label&gt;&lt;input id=&quot;publish-location&quot; value=&quot;心理中心 302 团辅室&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-radius&quot;&gt;定位签到范围&lt;/label&gt;&lt;select id=&quot;publish-radius&quot;&gt;&lt;option&gt;100 米&lt;/option&gt;&lt;option&gt;200 米&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+                &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-visibility&quot;&gt;可见范围&lt;/label&gt;&lt;select id=&quot;publish-visibility&quot;&gt;&lt;option&gt;全校学生&lt;/option&gt;&lt;option&gt;指定学院&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+                &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-review-role&quot;&gt;成果审核角色&lt;/label&gt;&lt;select id=&quot;publish-review-role&quot;&gt;&lt;option&gt;心理中心业务管理员&lt;/option&gt;&lt;option&gt;任课老师（兼辅导员）&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
               &lt;/div&gt;
             &lt;/div&gt;
             &lt;div class=&quot;form-section&quot;&gt;
@@ -2260,6 +2418,8 @@ html&gt;body{padding:0}&lt;/style&gt;
               &lt;div class=&quot;form-grid&quot;&gt;
                 &lt;div class=&quot;field wide&quot;&gt;&lt;label for=&quot;publish-description&quot;&gt;活动介绍&lt;/label&gt;&lt;textarea id=&quot;publish-description&quot;&gt;通过团体体验和情景练习，提升学生面对压力与挫折时的恢复能力。&lt;/textarea&gt;&lt;/div&gt;
                 &lt;div class=&quot;field wide&quot;&gt;&lt;label for=&quot;publish-proof&quot;&gt;成果材料要求&lt;/label&gt;&lt;textarea id=&quot;publish-proof&quot;&gt;上传活动现场照片，并提交不少于 300 字的实践心得。&lt;/textarea&gt;&lt;/div&gt;
+                &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-checkin&quot;&gt;签到方式&lt;/label&gt;&lt;select id=&quot;publish-checkin&quot;&gt;&lt;option&gt;定位签到 + 签退&lt;/option&gt;&lt;option&gt;仅签到&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+                &lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;publish-material-type&quot;&gt;成果类型&lt;/label&gt;&lt;select id=&quot;publish-material-type&quot;&gt;&lt;option&gt;照片 + 心得&lt;/option&gt;&lt;option&gt;照片 + Word 文档&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
               &lt;/div&gt;
               &lt;div class=&quot;form-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;m-button&quot;&gt;保存草稿&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;m-button primary&quot;&gt;发布活动&lt;/button&gt;&lt;/div&gt;
             &lt;/div&gt;
@@ -2268,8 +2428,18 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;categories&quot;&gt;
             &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;活动分类与项目库&lt;/h1&gt;&lt;p&gt;维护发布级别、活动性质和标准项目&lt;/p&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;m-button primary&quot;&gt;&lt;i data-lucide=&quot;plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;新增项目&lt;/button&gt;&lt;/div&gt;
             &lt;div class=&quot;split-setup&quot;&gt;
-              &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;活动分类&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;setup-list&quot;&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;知 · 心理素养&lt;/span&gt;&lt;strong&gt;8 项&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;体 · 身心拓展&lt;/span&gt;&lt;strong&gt;5 项&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;技 · 技能实践&lt;/span&gt;&lt;strong&gt;7 项&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-              &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;标准项目库&lt;/h2&gt;&lt;button class=&quot;text-link&quot;&gt;批量导入&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;项目名称&lt;/th&gt;&lt;th&gt;性质&lt;/th&gt;&lt;th&gt;默认学时&lt;/th&gt;&lt;th&gt;学时上限&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;正念训练&lt;/td&gt;&lt;td&gt;知&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;朋辈互助工作坊&lt;/td&gt;&lt;td&gt;技&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;心理定向挑战&lt;/td&gt;&lt;td&gt;体&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+              &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;活动分类&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;setup-list&quot;&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;知 · 心理素养&lt;/span&gt;&lt;strong&gt;3 项 · 上限 16&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;体 · 身心拓展&lt;/span&gt;&lt;strong&gt;3 项 · 上限 8&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;技 · 技能实践&lt;/span&gt;&lt;strong&gt;3 项 · 上限 8&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+              &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;标准项目库 · 9 项&lt;/h2&gt;&lt;button class=&quot;text-link&quot;&gt;批量导入&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;项目名称&lt;/th&gt;&lt;th&gt;性质&lt;/th&gt;&lt;th&gt;适用级别&lt;/th&gt;&lt;th&gt;默认学时&lt;/th&gt;&lt;th&gt;学时上限&lt;/th&gt;&lt;th&gt;通过标准&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+                &lt;tr&gt;&lt;td&gt;正念训练&lt;/td&gt;&lt;td&gt;知&lt;/td&gt;&lt;td&gt;校级 / 院级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;完成签到签退并提交 300 字心得&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;心理健康主题讲座&lt;/td&gt;&lt;td&gt;知&lt;/td&gt;&lt;td&gt;校级&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;签到签退完整且现场学习满 90 分钟&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;情绪管理微课堂&lt;/td&gt;&lt;td&gt;知&lt;/td&gt;&lt;td&gt;院级&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;完成课程并提交学习记录&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;心理定向挑战&lt;/td&gt;&lt;td&gt;体&lt;/td&gt;&lt;td&gt;校级 / 院级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;完成全部点位并上传现场照片&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;团体拓展训练&lt;/td&gt;&lt;td&gt;体&lt;/td&gt;&lt;td&gt;校级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;全程参与并完成团队任务&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;阳光健走&lt;/td&gt;&lt;td&gt;体&lt;/td&gt;&lt;td&gt;院级&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;完成规定路线与定位签到&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;朋辈互助工作坊&lt;/td&gt;&lt;td&gt;技&lt;/td&gt;&lt;td&gt;校级 / 院级&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;完成技能演练并提交反思记录&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;校园心理剧实践&lt;/td&gt;&lt;td&gt;技&lt;/td&gt;&lt;td&gt;校级&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;参与排演并完成公开展示&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;危机识别技能训练&lt;/td&gt;&lt;td&gt;技&lt;/td&gt;&lt;td&gt;院级&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;情景测评达到 80 分并完成复盘&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+              &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;/div&gt;
           &lt;/section&gt;
 
@@ -2281,32 +2451,33 @@ html&gt;body{padding:0}&lt;/style&gt;
 
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;rules&quot;&gt;
             &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;学时认定规则&lt;/h1&gt;&lt;p&gt;配置活动级别、性质与成果认定口径&lt;/p&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;m-button primary&quot;&gt;保存规则&lt;/button&gt;&lt;/div&gt;
-            &lt;div class=&quot;form-section&quot;&gt;&lt;h2&gt;学时上限&lt;/h2&gt;&lt;div class=&quot;form-grid&quot;&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-school&quot;&gt;校级活动上限&lt;/label&gt;&lt;input id=&quot;rule-school&quot; value=&quot;16 学时&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-college&quot;&gt;院级活动上限&lt;/label&gt;&lt;input id=&quot;rule-college&quot; value=&quot;12 学时&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-knowledge&quot;&gt;知类上限&lt;/label&gt;&lt;input id=&quot;rule-knowledge&quot; value=&quot;8 学时&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-skill&quot;&gt;技类上限&lt;/label&gt;&lt;input id=&quot;rule-skill&quot; value=&quot;8 学时&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;form-section&quot;&gt;&lt;h2&gt;学时上限 · 知 / 体 / 技&lt;/h2&gt;&lt;div class=&quot;form-grid&quot;&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-knowledge&quot;&gt;知类上限&lt;/label&gt;&lt;input id=&quot;rule-knowledge&quot; value=&quot;16 学时&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-body&quot;&gt;体类上限&lt;/label&gt;&lt;input id=&quot;rule-body&quot; value=&quot;8 学时&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-skill&quot;&gt;技类上限&lt;/label&gt;&lt;input id=&quot;rule-skill&quot; value=&quot;8 学时&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;rule-total&quot;&gt;总学时参考值&lt;/label&gt;&lt;input id=&quot;rule-total&quot; value=&quot;32 学时&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;成果认定条件&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;活动性质&lt;/th&gt;&lt;th&gt;签到要求&lt;/th&gt;&lt;th&gt;材料要求&lt;/th&gt;&lt;th&gt;AI 检测&lt;/th&gt;&lt;th&gt;认定方式&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;知&lt;/td&gt;&lt;td&gt;签到 + 签退&lt;/td&gt;&lt;td&gt;不少于 300 字心得&lt;/td&gt;&lt;td&gt;启用&lt;/td&gt;&lt;td&gt;人工认定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;体&lt;/td&gt;&lt;td&gt;签到 + 签退&lt;/td&gt;&lt;td&gt;现场照片&lt;/td&gt;&lt;td&gt;关闭&lt;/td&gt;&lt;td&gt;人工认定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;技&lt;/td&gt;&lt;td&gt;签到 + 签退&lt;/td&gt;&lt;td&gt;心得或 Word 文档&lt;/td&gt;&lt;td&gt;启用&lt;/td&gt;&lt;td&gt;人工认定&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
           &lt;/section&gt;
 
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;verify&quot;&gt;
             &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;成果认定&lt;/h1&gt;&lt;p&gt;审核学生签到、照片与实践心得&lt;/p&gt;&lt;/div&gt;&lt;button type=&quot;button&quot; class=&quot;m-button primary&quot;&gt;&lt;i data-lucide=&quot;check-check&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;批量通过&lt;/button&gt;&lt;/div&gt;
-            &lt;div class=&quot;verify-summary&quot;&gt;&lt;div class=&quot;summary-chip&quot;&gt;待认定 &lt;strong&gt;48&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;summary-chip&quot;&gt;AI 待复核 &lt;strong&gt;6&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;summary-chip&quot;&gt;今日已处理 &lt;strong&gt;32&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;verify-summary&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;summary-chip is-active&quot;&gt;待认定 &lt;strong&gt;48&lt;/strong&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;summary-chip&quot;&gt;AI 待复核 &lt;strong&gt;6&lt;/strong&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;summary-chip&quot;&gt;已通过 &lt;strong&gt;326&lt;/strong&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;summary-chip&quot;&gt;已驳回 &lt;strong&gt;12&lt;/strong&gt;&lt;/button&gt;&lt;/div&gt;
             &lt;div class=&quot;filters&quot;&gt;&lt;div class=&quot;field wide&quot;&gt;&lt;label for=&quot;verify-keyword&quot;&gt;学生 / 活动&lt;/label&gt;&lt;input id=&quot;verify-keyword&quot; placeholder=&quot;姓名、学号或活动名称&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;verify-ai&quot;&gt;AI 检测&lt;/label&gt;&lt;select id=&quot;verify-ai&quot;&gt;&lt;option&gt;全部&lt;/option&gt;&lt;option&gt;待复核&lt;/option&gt;&lt;option&gt;正常&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;button class=&quot;m-button primary&quot;&gt;查询&lt;/button&gt;&lt;/div&gt;
             &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;全选待认定成果&quot;&gt;&lt;/th&gt;&lt;th&gt;学生&lt;/th&gt;&lt;th&gt;活动&lt;/th&gt;&lt;th&gt;提交时间&lt;/th&gt;&lt;th&gt;材料&lt;/th&gt;&lt;th&gt;AI 检测&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择张悦成果&quot;&gt;&lt;/td&gt;&lt;td&gt;张悦&lt;br&gt;&lt;span style=&quot;color:var(--m-ink-3)&quot;&gt;2023100821&lt;/span&gt;&lt;/td&gt;&lt;td&gt;正念减压训练营&lt;/td&gt;&lt;td&gt;07-23 20:18&lt;/td&gt;&lt;td&gt;3 张照片 · 486 字&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;正常&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag warn&quot;&gt;待认定&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;审核&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择陈熙成果&quot;&gt;&lt;/td&gt;&lt;td&gt;陈熙&lt;br&gt;&lt;span style=&quot;color:var(--m-ink-3)&quot;&gt;2023101146&lt;/span&gt;&lt;/td&gt;&lt;td&gt;朋辈互助技能工作坊&lt;/td&gt;&lt;td&gt;07-23 19:42&lt;/td&gt;&lt;td&gt;2 张照片 · Word&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag danger&quot;&gt;待复核&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag warn&quot;&gt;待认定&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;审核&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择李岚成果&quot;&gt;&lt;/td&gt;&lt;td&gt;李岚&lt;br&gt;&lt;span style=&quot;color:var(--m-ink-3)&quot;&gt;2023100752&lt;/span&gt;&lt;/td&gt;&lt;td&gt;心理定向挑战&lt;/td&gt;&lt;td&gt;07-22 17:09&lt;/td&gt;&lt;td&gt;4 张照片&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;正常&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag warn&quot;&gt;待认定&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;审核&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;review-panel&quot;&gt;&lt;div&gt;&lt;h2&gt;当前材料 · 张悦 / 正念减压训练营&lt;/h2&gt;&lt;div class=&quot;review-files&quot;&gt;&lt;div class=&quot;review-file&quot;&gt;现场照片 1&lt;/div&gt;&lt;div class=&quot;review-file&quot;&gt;现场照片 2&lt;/div&gt;&lt;div class=&quot;review-file&quot;&gt;486 字心得&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;h2&gt;审核结论&lt;/h2&gt;&lt;div class=&quot;field wide&quot;&gt;&lt;label for=&quot;reject-reason&quot;&gt;驳回理由（驳回时必填）&lt;/label&gt;&lt;textarea id=&quot;reject-reason&quot; placeholder=&quot;请填写明确、可执行的补充要求&quot; required&gt;&lt;/textarea&gt;&lt;/div&gt;&lt;div class=&quot;form-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;m-button&quot;&gt;驳回并通知&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;m-button primary&quot;&gt;通过认定&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
           &lt;/section&gt;
 
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;results&quot;&gt;
-            &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;成绩汇总&lt;/h1&gt;&lt;p&gt;按基础学时与拓展学时汇总学生成绩&lt;/p&gt;&lt;/div&gt;&lt;div style=&quot;display:flex;gap:8px&quot;&gt;&lt;button class=&quot;m-button&quot;&gt;导出已选&lt;/button&gt;&lt;button class=&quot;m-button primary&quot;&gt;&lt;i data-lucide=&quot;file-down&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;导出全部&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;成绩汇总&lt;/h1&gt;&lt;p&gt;按知、体、技三类学时汇总学生成绩&lt;/p&gt;&lt;/div&gt;&lt;div style=&quot;display:flex;gap:8px&quot;&gt;&lt;button class=&quot;m-button&quot;&gt;导出已选&lt;/button&gt;&lt;button class=&quot;m-button primary&quot;&gt;&lt;i data-lucide=&quot;file-down&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;导出全部&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;div class=&quot;filters&quot;&gt;&lt;div class=&quot;field wide&quot;&gt;&lt;label for=&quot;result-keyword&quot;&gt;学生&lt;/label&gt;&lt;input id=&quot;result-keyword&quot; placeholder=&quot;姓名或学号&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;result-class&quot;&gt;班级&lt;/label&gt;&lt;select id=&quot;result-class&quot;&gt;&lt;option&gt;全部班级&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;result-status&quot;&gt;状态&lt;/label&gt;&lt;select id=&quot;result-status&quot;&gt;&lt;option&gt;全部状态&lt;/option&gt;&lt;option&gt;已达标&lt;/option&gt;&lt;option&gt;未达标&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;button class=&quot;m-button primary&quot;&gt;查询&lt;/button&gt;&lt;/div&gt;
-            &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;全选学生&quot;&gt;&lt;/th&gt;&lt;th&gt;学号&lt;/th&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;班级&lt;/th&gt;&lt;th&gt;基础学时&lt;/th&gt;&lt;th&gt;拓展学时&lt;/th&gt;&lt;th&gt;总学时&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择张悦&quot;&gt;&lt;/td&gt;&lt;td&gt;2023100821&lt;/td&gt;&lt;td&gt;张悦&lt;/td&gt;&lt;td&gt;应用心理 2301&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;td&gt;28&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;已达标&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;明细&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择陈熙&quot;&gt;&lt;/td&gt;&lt;td&gt;2023101146&lt;/td&gt;&lt;td&gt;陈熙&lt;/td&gt;&lt;td&gt;数字媒体 2302&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;已达标&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;明细&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择李岚&quot;&gt;&lt;/td&gt;&lt;td&gt;2023100752&lt;/td&gt;&lt;td&gt;李岚&lt;/td&gt;&lt;td&gt;汉语言 2303&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag danger&quot;&gt;未达标&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;明细&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;全选学生&quot;&gt;&lt;/th&gt;&lt;th&gt;学号&lt;/th&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;班级&lt;/th&gt;&lt;th&gt;知类学时&lt;/th&gt;&lt;th&gt;体类学时&lt;/th&gt;&lt;th&gt;技类学时&lt;/th&gt;&lt;th&gt;总学时&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择张悦&quot;&gt;&lt;/td&gt;&lt;td&gt;2023100821&lt;/td&gt;&lt;td&gt;张悦&lt;/td&gt;&lt;td&gt;应用心理 2301&lt;/td&gt;&lt;td&gt;12&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;28&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;已达标&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;明细&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择陈熙&quot;&gt;&lt;/td&gt;&lt;td&gt;2023101146&lt;/td&gt;&lt;td&gt;陈熙&lt;/td&gt;&lt;td&gt;数字媒体 2302&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;已达标&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;明细&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;check-cell&quot;&gt;&lt;input type=&quot;checkbox&quot; aria-label=&quot;选择李岚&quot;&gt;&lt;/td&gt;&lt;td&gt;2023100752&lt;/td&gt;&lt;td&gt;李岚&lt;/td&gt;&lt;td&gt;汉语言 2303&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag danger&quot;&gt;未达标&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;明细&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
           &lt;/section&gt;
 
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;roles&quot;&gt;
             &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;角色与权限&lt;/h1&gt;&lt;p&gt;配置各类管理角色的功能权限&lt;/p&gt;&lt;/div&gt;&lt;button class=&quot;m-button primary&quot;&gt;&lt;i data-lucide=&quot;plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;新增角色&lt;/button&gt;&lt;/div&gt;
-            &lt;div class=&quot;split-setup&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;角色列表&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;setup-list&quot;&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;心理中心管理员&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;12 人&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;学院管理员&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;28 人&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;辅导员&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;76 人&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;权限矩阵&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;模块&lt;/th&gt;&lt;th&gt;查看&lt;/th&gt;&lt;th&gt;增&lt;/th&gt;&lt;th&gt;删&lt;/th&gt;&lt;th&gt;改&lt;/th&gt;&lt;th&gt;导出&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;活动管理&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;成果认定&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;系统管理&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;split-setup&quot;&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;角色列表&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;setup-list&quot;&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;系统管理员&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;3 人&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;心理中心业务管理员&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;12 人&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;任课老师（兼辅导员）&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;46 人&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;学院老师（联络）&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;28 人&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;setup-row&quot;&gt;&lt;span&gt;督导&lt;/span&gt;&lt;span class=&quot;status-tag&quot;&gt;8 人&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;panel-head&quot;&gt;&lt;h2&gt;心理中心业务管理员 · 权限矩阵&lt;/h2&gt;&lt;/div&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;模块&lt;/th&gt;&lt;th&gt;查看&lt;/th&gt;&lt;th&gt;管理&lt;/th&gt;&lt;th&gt;审核&lt;/th&gt;&lt;th&gt;导出&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;活动管理&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;课程管理&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;学时认定规则&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;成果认定&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;成绩汇总&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;✓&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;系统管理&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
           &lt;/section&gt;
 
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;users&quot;&gt;
             &lt;div class=&quot;page-head&quot;&gt;&lt;div&gt;&lt;h1&gt;用户管理&lt;/h1&gt;&lt;p&gt;管理账号、组织与角色绑定&lt;/p&gt;&lt;/div&gt;&lt;button class=&quot;m-button primary&quot;&gt;&lt;i data-lucide=&quot;user-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;新增用户&lt;/button&gt;&lt;/div&gt;
             &lt;div class=&quot;filters&quot;&gt;&lt;div class=&quot;field wide&quot;&gt;&lt;label for=&quot;user-keyword&quot;&gt;姓名 / 工号&lt;/label&gt;&lt;input id=&quot;user-keyword&quot; placeholder=&quot;搜索用户&quot;&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;user-role&quot;&gt;角色&lt;/label&gt;&lt;select id=&quot;user-role&quot;&gt;&lt;option&gt;全部角色&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;&lt;button class=&quot;m-button primary&quot;&gt;查询&lt;/button&gt;&lt;/div&gt;
-            &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;工号&lt;/th&gt;&lt;th&gt;部门&lt;/th&gt;&lt;th&gt;角色&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;最近登录&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;王老师&lt;/td&gt;&lt;td&gt;T0182&lt;/td&gt;&lt;td&gt;心理中心&lt;/td&gt;&lt;td&gt;心理中心管理员&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;td&gt;07-24 09:21&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;赵老师&lt;/td&gt;&lt;td&gt;T0466&lt;/td&gt;&lt;td&gt;信息学院&lt;/td&gt;&lt;td&gt;学院管理员&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;td&gt;07-23 16:48&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;data-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;工号&lt;/th&gt;&lt;th&gt;部门&lt;/th&gt;&lt;th&gt;角色&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;最近登录&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;王老师&lt;/td&gt;&lt;td&gt;T0182&lt;/td&gt;&lt;td&gt;心理中心&lt;/td&gt;&lt;td&gt;心理中心业务管理员&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;td&gt;07-24 09:21&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;陈老师&lt;/td&gt;&lt;td&gt;T0268&lt;/td&gt;&lt;td&gt;应用心理系&lt;/td&gt;&lt;td&gt;任课老师（兼辅导员）&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;td&gt;07-24 08:42&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;赵老师&lt;/td&gt;&lt;td&gt;T0466&lt;/td&gt;&lt;td&gt;信息学院&lt;/td&gt;&lt;td&gt;学院老师（联络）&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;td&gt;07-23 16:48&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;周老师&lt;/td&gt;&lt;td&gt;T0106&lt;/td&gt;&lt;td&gt;教学督导组&lt;/td&gt;&lt;td&gt;督导&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;status-tag&quot;&gt;启用&lt;/span&gt;&lt;/td&gt;&lt;td&gt;07-22 14:16&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;text-link&quot;&gt;编辑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
           &lt;/section&gt;
 
           &lt;section class=&quot;admin-page&quot; data-admin-page=&quot;student-activities&quot;&gt;
@@ -2322,6 +2493,17 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;/section&gt;
         &lt;/div&gt;
       &lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;device-screen&quot; data-screen=&quot;student-pc&quot; aria-label=&quot;学生 PC 预览&quot;&gt;
+    &lt;div class=&quot;student-pc-shell&quot;&gt;
+      &lt;header class=&quot;student-pc-header&quot;&gt;
+        &lt;div class=&quot;student-pc-brand&quot;&gt;&lt;span class=&quot;admin-logo&quot;&gt;心&lt;/span&gt;&lt;span&gt;心育实践平台&lt;/span&gt;&lt;/div&gt;
+        &lt;nav class=&quot;student-pc-nav&quot; aria-label=&quot;学生 PC 导航&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;is-active&quot; data-student-pc-target=&quot;student-activities&quot;&gt;活动查看&lt;/button&gt;&lt;button type=&quot;button&quot; data-student-pc-target=&quot;student-materials&quot;&gt;我的材料&lt;/button&gt;&lt;/nav&gt;
+        &lt;div class=&quot;student-pc-user&quot;&gt;&lt;span&gt;张悦 · 应用心理 2301&lt;/span&gt;&lt;span class=&quot;avatar&quot;&gt;悦&lt;/span&gt;&lt;/div&gt;
+      &lt;/header&gt;
+      &lt;main class=&quot;student-pc-main&quot; data-student-pc-mount&gt;&lt;/main&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 
@@ -2404,6 +2586,7 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;div class=&quot;mobile-card&quot;&gt;&lt;h2&gt;活动照片&lt;/h2&gt;&lt;div class=&quot;upload-box&quot;&gt;&lt;span&gt;&lt;i data-lucide=&quot;image-plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;br&gt;上传活动现场照片&lt;br&gt;&lt;small&gt;最多 9 张&lt;/small&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;div class=&quot;mobile-card&quot;&gt;&lt;h2&gt;实践心得&lt;/h2&gt;&lt;textarea class=&quot;mobile-textarea&quot; placeholder=&quot;不少于 300 字，也可上传 Word 文档&quot;&gt;这次正念练习让我第一次注意到，压力并不是必须立刻消除的东西。我开始学会先观察呼吸和身体的感受，再决定怎样回应……&lt;/textarea&gt;&lt;div class=&quot;upload-box&quot; style=&quot;min-height:64px;margin-top:8px&quot;&gt;&lt;span&gt;&lt;i data-lucide=&quot;file-up&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 上传 Word&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;div class=&quot;notice&quot; style=&quot;border-left-color:var(--m-brand);background:var(--m-brand-tint)&quot;&gt;提交后将进行 AI 辅助检测，检测结果仅作为人工认定参考。&lt;/div&gt;
+            &lt;div class=&quot;notice&quot;&gt;本项目最多认定 4 学时；超出同类学时上限的部分不会重复计入。&lt;/div&gt;
             &lt;button class=&quot;mobile-primary&quot; type=&quot;button&quot;&gt;提交成果&lt;/button&gt;
           &lt;/div&gt;
         &lt;/section&gt;
@@ -2422,7 +2605,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;section class=&quot;student-page&quot; data-student-page=&quot;report&quot;&gt;
           &lt;div class=&quot;mobile-nav&quot;&gt;&lt;button class=&quot;icon-button&quot; type=&quot;button&quot; data-student-target=&quot;profile&quot; aria-label=&quot;返回我的&quot;&gt;&lt;i data-lucide=&quot;chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;strong&gt;课程实践报告&lt;/strong&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
           &lt;div class=&quot;mobile-section&quot; style=&quot;padding-top:4px&quot;&gt;
-            &lt;div class=&quot;mobile-card&quot;&gt;&lt;h2&gt;学时明细&lt;/h2&gt;&lt;table class=&quot;report-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;类型&lt;/th&gt;&lt;th&gt;已获&lt;/th&gt;&lt;th&gt;要求&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;基础学时&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;≥ 8&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;拓展学时&lt;/td&gt;&lt;td&gt;14&lt;/td&gt;&lt;td&gt;≥ 12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;总学时&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;≥ 20&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+            &lt;div class=&quot;mobile-card&quot;&gt;&lt;h2&gt;学时明细&lt;/h2&gt;&lt;table class=&quot;report-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;性质&lt;/th&gt;&lt;th&gt;已获&lt;/th&gt;&lt;th&gt;学时上限&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;知 · 心理素养&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;td&gt;16&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;体 · 身心拓展&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;技 · 技能实践&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;总学时&lt;/td&gt;&lt;td&gt;24&lt;/td&gt;&lt;td&gt;32&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
             &lt;div class=&quot;mobile-card&quot;&gt;&lt;h2&gt;实践总结&lt;/h2&gt;&lt;textarea class=&quot;mobile-textarea&quot; style=&quot;min-height:140px&quot; placeholder=&quot;请结合参加的实践活动完成不少于 2000 字的总结&quot;&gt;&lt;/textarea&gt;&lt;p style=&quot;margin-top:5px;color:var(--m-ink-3);font-size:11.5px;text-align:right&quot;&gt;0 / 2000 字&lt;/p&gt;&lt;/div&gt;
             &lt;div class=&quot;mobile-card&quot;&gt;&lt;h2&gt;证明材料&lt;/h2&gt;&lt;div class=&quot;upload-box&quot;&gt;&lt;span&gt;&lt;i data-lucide=&quot;paperclip&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;br&gt;上传图片或 PDF&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
             &lt;label style=&quot;display:flex;gap:8px;align-items:flex-start;margin:12px 0;color:var(--m-ink-2);font-size:12px&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;本人确认以上内容真实、完整，并同意按课程要求提交审核。&lt;/label&gt;
@@ -2462,6 +2645,18 @@ html&gt;body{padding:0}&lt;/style&gt;
       const root = document.getElementById(&quot;mep-s-frontend-audited&quot;);
       if (!root) return;
 
+      const studentPcMount = root.querySelector(&quot;[data-student-pc-mount]&quot;);
+      [&quot;student-activities&quot;, &quot;student-materials&quot;].forEach((name, index) =&gt; {
+        const page = root.querySelector(`[data-admin-page=&quot;${name}&quot;]`);
+        if (!page || !studentPcMount) return;
+        page.classList.remove(&quot;admin-page&quot;);
+        page.classList.add(&quot;student-pc-page&quot;);
+        page.classList.toggle(&quot;is-active&quot;, index === 0);
+        page.removeAttribute(&quot;data-admin-page&quot;);
+        page.setAttribute(&quot;data-student-pc-page&quot;, name);
+        studentPcMount.appendChild(page);
+      });
+
       const deviceButtons = Array.from(root.querySelectorAll(&quot;[data-device]&quot;));
       const screens = Array.from(root.querySelectorAll(&quot;[data-screen]&quot;));
       const setDevice = (name) =&gt; {
@@ -2487,9 +2682,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         verify: &quot;成果认定&quot;,
         results: &quot;成绩汇总&quot;,
         roles: &quot;角色与权限&quot;,
-        users: &quot;用户管理&quot;,
-        &quot;student-activities&quot;: &quot;学生·活动查看&quot;,
-        &quot;student-materials&quot;: &quot;学生·我的材料&quot;
+        users: &quot;用户管理&quot;
       };
       const setAdminPage = (name) =&gt; {
         if (!adminLabels[name]) return;
@@ -2499,6 +2692,14 @@ html&gt;body{padding:0}&lt;/style&gt;
       };
       adminLinks.forEach((button) =&gt; button.addEventListener(&quot;click&quot;, () =&gt; setAdminPage(button.dataset.adminTarget)));
 
+      const studentPcPages = Array.from(root.querySelectorAll(&quot;[data-student-pc-page]&quot;));
+      const studentPcLinks = Array.from(root.querySelectorAll(&quot;[data-student-pc-target]&quot;));
+      const setStudentPcPage = (name) =&gt; {
+        studentPcPages.forEach((page) =&gt; page.classList.toggle(&quot;is-active&quot;, page.dataset.studentPcPage === name));
+        studentPcLinks.forEach((button) =&gt; button.classList.toggle(&quot;is-active&quot;, button.dataset.studentPcTarget === name));
+      };
+      studentPcLinks.forEach((button) =&gt; button.addEventListener(&quot;click&quot;, () =&gt; setStudentPcPage(button.dataset.studentPcTarget)));
+
       const studentPages = Array.from(root.querySelectorAll(&quot;[data-student-page]&quot;));
       const studentLinks = Array.from(root.querySelectorAll(&quot;[data-student-target]&quot;));
       const tabs = Array.from(root.querySelectorAll(&quot;.student-tab&quot;));
@@ -2507,6 +2708,23 @@ html&gt;body{padding:0}&lt;/style&gt;
         tabs.forEach((tab) =&gt; tab.classList.toggle(&quot;is-active&quot;, tab.dataset.studentTarget === name));
       };
       studentLinks.forEach((button) =&gt; button.addEventListener(&quot;click&quot;, () =&gt; setStudentPage(button.dataset.studentTarget)));
+
+      root.querySelectorAll(&quot;.verify-summary, .chips&quot;).forEach((group) =&gt; {
+        group.querySelectorAll(&quot;button&quot;).forEach((button) =&gt; {
+          button.addEventListener(&quot;click&quot;, () =&gt; {
+            group.querySelectorAll(&quot;button&quot;).forEach((item) =&gt; item.classList.remove(&quot;is-active&quot;));
+            button.classList.add(&quot;is-active&quot;);
+          });
+        });
+      });
+
+      root.querySelectorAll(&quot;.favorite&quot;).forEach((button) =&gt; {
+        button.addEventListener(&quot;click&quot;, () =&gt; {
+          const active = button.classList.toggle(&quot;is-active&quot;);
+          button.setAttribute(&quot;aria-pressed&quot;, String(active));
+          button.setAttribute(&quot;aria-label&quot;, active ? &quot;取消收藏活动&quot; : &quot;收藏活动&quot;);
+        });
+      });
 
       const drawer = root.querySelector(&quot;[data-drawer]&quot;);
       root.querySelectorAll(&quot;[data-drawer-open]&quot;).forEach((button) =&gt; button.addEventListener(&quot;click&quot;, () =&gt; drawer &amp;&amp; drawer.classList.add(&quot;is-open&quot;)));
